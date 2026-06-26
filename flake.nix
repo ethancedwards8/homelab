@@ -13,16 +13,17 @@
       devShell = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs { inherit system; };
         in
         with pkgs;
         mkShell {
           buildInputs = [
             git
             nixfmt
-            opentofu
 
-            cf-terraforming
+            (opentofu.withPlugins (p: with p; [
+              cloudflare_cloudflare
+            ]))
           ];
         }
       );
