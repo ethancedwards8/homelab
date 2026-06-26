@@ -21,6 +21,8 @@
             git
             nixfmt
             opentofu
+
+            cf-terraforming
           ];
         }
       );
