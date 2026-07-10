@@ -25,6 +25,7 @@
               cloudflare_cloudflare
             ]))
 
+            fluxcd
 
             minikube
           ];
