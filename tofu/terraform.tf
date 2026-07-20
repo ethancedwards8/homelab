@@ -1,12 +1,13 @@
 # https://developers.cloudflare.com/terraform/tutorial/
 
-# norm of file is append the type (bucket, domain)
-# to local resource identifier
-
 # https://stackoverflow.com/questions/62453985/terraform-convention-should-i-declare-a-constant-as-a-variable-or-local
 locals {
   state_bucket = "homelab-tf-state"
-  account_id = "14a8704b05622c623affefb0d8dd93d4"
+}
+
+variable "account_id" {
+  type = string
+  default = "14a8704b05622c623affefb0d8dd93d4"
 }
 
 # https://spacelift.io/blog/terraform-secrets
@@ -34,7 +35,7 @@ terraform {
     use_lockfile                = true
     access_key                  = var.state_access_key
     secret_key                  = var.state_secret_key
-    endpoints = { s3 = "https://${local.account_id}.r2.cloudflarestorage.com" }
+    endpoints = { s3 = "https://${var.account_id}.r2.cloudflarestorage.com" }
   }
 
   required_providers {
@@ -47,7 +48,7 @@ terraform {
 provider "cloudflare" {}
 
 resource "cloudflare_r2_bucket" "homelab-tf-state-bucket" {
-  account_id = local.account_id
+  account_id = var.account_id
   name = "homelab-tf-state"
   location = "ENAM"
 }
