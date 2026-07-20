@@ -27,6 +27,7 @@
 
             minikube
             kubectl
+            fluxcd
           ];
         }
       );
