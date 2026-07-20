@@ -1,0 +1,7 @@
+this is my tf for homelab
+
+mostly cloudflare, dns, etc.
+
+ideas are brewing
+
+boostrapped into a remote state backend. see terraform.tf
