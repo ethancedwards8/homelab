@@ -24,6 +24,9 @@
             (opentofu.withPlugins (p: with p; [
               cloudflare_cloudflare
             ]))
+
+            minikube
+            kubectl
           ];
         }
       );
