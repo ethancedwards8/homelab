@@ -22,7 +22,7 @@ variable "state_secret_key" {
 terraform {
   # https://developers.cloudflare.com/terraform/advanced-topics/remote-backend/
   backend "s3" {
-    bucket = "homelab-tf-state"
+    bucket = local.state_bucket
     key    = "homelab/terraform.tfstate"
     region                      = "auto"
     skip_credentials_validation = true
