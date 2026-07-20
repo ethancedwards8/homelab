@@ -44,6 +44,8 @@ terraform {
   }
 }
 
+provider "cloudflare" {}
+
 resource "cloudflare_r2_bucket" "homelab-tf-state-bucket" {
   account_id = local.account_id
   name = "homelab-tf-state"
