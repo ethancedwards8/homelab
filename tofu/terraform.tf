@@ -5,11 +5,6 @@ locals {
   state_bucket = "homelab-tf-state"
 }
 
-variable "account_id" {
-  type = string
-  default = "14a8704b05622c623affefb0d8dd93d4"
-}
-
 # https://spacelift.io/blog/terraform-secrets
 # using TF_VAR env vars
 variable "state_access_key" {
