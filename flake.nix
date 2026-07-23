@@ -23,6 +23,7 @@
 
             (opentofu.withPlugins (p: with p; [
               cloudflare_cloudflare
+              oracle_oci
             ]))
 
             minikube
